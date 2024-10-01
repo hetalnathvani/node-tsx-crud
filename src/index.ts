@@ -2,32 +2,37 @@ import express from "express";
 import mongoose from "mongoose";
 
 const app = express();
-const mangoose = require("mangoose");
+const mongoURI =
+  "mongodb+srv://nathvanihetal:Q8RsBm1QF8m087sI@cluster0.u1r3o.mongodb.net/crud_tsx";
 
-const mongoURI = "mongodb://localhost:27017/crud_tsx";
+mongoose.connect(mongoURI);
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(mongoURI, {
-      useUnifiedTopology: true,
-    });
-    console.log("MongoDB connected");
-  } catch (error) {
-    console.error("MongoDB connection error:", error);
-    process.exit(1);
-  }
-};
+const database = mongoose.connection;
 
-app.get("/", (req, res) => {
-  console.log(req);
-  console.log(res);
+database.on("error", (error) => {
+  console.log(error);
+});
 
-  res.send("Hello, Node!");
+database.once("connected", () => {
+  console.log("Database Connected");
+});
+
+const EmployeeSchema = new mongoose.Schema({
+  name: { type: String },
+  email: { type: String },
+  projects: { type: String },
+  city: { type: String },
+  education: { type: String },
+});
+
+const EmployeeModel = mongoose.model("employees", EmployeeSchema);
+
+app.get("/", async (req, res) => {
+  let data = await EmployeeModel.find({});
+  res.json(data);
 });
 
 const port = 3002;
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
 });
-
-module.exports = connectDB;

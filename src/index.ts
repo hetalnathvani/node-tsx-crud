@@ -1,38 +1,17 @@
 import express from "express";
-import mongoose from "mongoose";
+import { db } from "./config/db.config";
+import { router } from "./Routes/employee.routes";
 
 const app = express();
-const mongoURI =
-  "mongodb+srv://nathvanihetal:Q8RsBm1QF8m087sI@cluster0.u1r3o.mongodb.net/crud_tsx";
 
-mongoose.connect(mongoURI);
+// middlewares
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-const database = mongoose.connection;
+// routes
+app.use("/api/v1/employees", router);
 
-database.on("error", (error) => {
-  console.log(error);
-});
-
-database.once("connected", () => {
-  console.log("Database Connected");
-});
-
-const EmployeeSchema = new mongoose.Schema({
-  name: { type: String },
-  email: { type: String },
-  projects: { type: String },
-  city: { type: String },
-  education: { type: String },
-});
-
-const EmployeeModel = mongoose.model("employees", EmployeeSchema);
-
-app.get("/", async (req, res) => {
-  let data = await EmployeeModel.find({});
-  res.json(data);
-});
-
-const port = 3002;
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+// db connection then server connection
+db.then(() => {
+  app.listen(3002, () => console.log("Server is listening on port 3002"));
 });

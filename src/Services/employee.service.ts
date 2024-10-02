@@ -10,6 +10,14 @@ export class EmployeeService {
       console.log(error);
     }
   }
+
+  async createEmployee() {
+    try {
+      
+    } catch (error) {
+
+    }
+  }
 }
 
 export const EmployeeServices = new EmployeeService();

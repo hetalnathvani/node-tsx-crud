@@ -6,3 +6,6 @@ export const router = express.Router();
 
 // get employees
 router.get("/", EmployeeController.getEmployees);
+
+// create employee
+router.post("/add", EmployeeController.createEmployee);

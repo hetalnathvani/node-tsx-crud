@@ -56,6 +56,23 @@ class employeeController {
       });
     }
   };
+
+  deleteEmployee = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const response: any = await EmployeeServices.deleteEmployee(id);
+
+    if (response?.status == false) {
+      res.status(201).send({
+        status: "Error",
+        message: response.message,
+      });
+    } else {
+      res.status(201).send({
+        status: "Success",
+        message: "Employee Deleted SuccessFully!!!",
+      });
+    }
+  };
 }
 
 export const EmployeeController = new employeeController();

@@ -35,6 +35,23 @@ export class EmployeeService {
       console.log(error);
     }
   }
+
+  async deleteEmployee(id: String) {
+    try {
+      const employee = await Employees.findByIdAndDelete(id);
+
+      if (!employee || employee == null) {
+        return {
+          status: false,
+          message: "Employee not found !!!",
+        };
+      }
+
+      return employee;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export const EmployeeServices = new EmployeeService();

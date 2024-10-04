@@ -12,3 +12,6 @@ router.post("/add", EmployeeController.createEmployee);
 
 // update employee
 router.put("/update/:id", EmployeeController.updateEmployee);
+
+// delete employee
+router.delete("/delete/:id", EmployeeController.deleteEmployee);

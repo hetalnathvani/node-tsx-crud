@@ -11,11 +11,12 @@ export class EmployeeService {
     }
   }
 
-  async createEmployee() {
+  async createEmployee(data: Object) {
     try {
-      
+      const newEmployee = await Employees.create(data);
+      return newEmployee;
     } catch (error) {
-
+      console.log(error);
     }
   }
 }

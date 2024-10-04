@@ -9,3 +9,6 @@ router.get("/", EmployeeController.getEmployees);
 
 // create employee
 router.post("/add", EmployeeController.createEmployee);
+
+// update employee
+router.put("/update/:id", EmployeeController.updateEmployee);

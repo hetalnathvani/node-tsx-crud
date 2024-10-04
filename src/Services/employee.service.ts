@@ -19,6 +19,22 @@ export class EmployeeService {
       console.log(error);
     }
   }
+
+  async updateEmployee(id: String, data: Object) {
+    try {
+      const employee = await Employees.findByIdAndUpdate({ _id: id }, data, {
+        new: true,
+      });
+
+      if (!employee) {
+        return "Employee not found !!!";
+      }
+
+      return employee;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export const EmployeeServices = new EmployeeService();

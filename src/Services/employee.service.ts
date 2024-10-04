@@ -52,6 +52,15 @@ export class EmployeeService {
       console.log(error);
     }
   }
+
+  async viewEmployee(id: String) {
+    try {
+      const employee = await Employees.findOne({ _id: id });
+      return employee;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export const EmployeeServices = new EmployeeService();

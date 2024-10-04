@@ -15,3 +15,6 @@ router.put("/update/:id", EmployeeController.updateEmployee);
 
 // delete employee
 router.delete("/delete/:id", EmployeeController.deleteEmployee);
+
+// view employee
+router.get("/view/:id", EmployeeController.viewEmployee);

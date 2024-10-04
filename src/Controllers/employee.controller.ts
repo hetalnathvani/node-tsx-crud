@@ -73,6 +73,24 @@ class employeeController {
       });
     }
   };
+
+  viewEmployee = async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const response: any = await EmployeeServices.viewEmployee(id);
+
+    if (response.length == 0) {
+      res.status(201).send({
+        status: "Error",
+        message: "Employee Not Found!!!",
+      });
+    } else {
+      res.status(201).send({
+        status: "Success",
+        message: "Employee Data Fetched SuccessFully!!!",
+        data: response,
+      });
+    }
+  };
 }
 
 export const EmployeeController = new employeeController();

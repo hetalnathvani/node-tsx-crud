@@ -6,7 +6,11 @@ class employeeController {
   // get all employees
   getEmployees = async (req: Request, res: Response) => {
     const employees = await EmployeeServices.getEmployees();
-    res.send(employees);
+    res.status(201).send({
+      status: "Success",
+      data: employees,
+      message: "Employees list sent SuccessFully!!!",
+    });
   };
 
   // create an employee

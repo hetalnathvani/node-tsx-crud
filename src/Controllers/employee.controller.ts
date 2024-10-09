@@ -9,7 +9,7 @@ class employeeController {
     res.status(201).send({
       status: "Success",
       data: employees,
-      message: "Employees list sent SuccessFully!!!",
+      message: "Employees list sent Successfully!!!",
     });
   };
 

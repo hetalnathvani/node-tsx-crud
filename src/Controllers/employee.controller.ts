@@ -37,6 +37,7 @@ class employeeController {
     }
   };
 
+  // Update an employee
   updateEmployee = async (req: Request, res: Response) => {
     const data = {
       name: req.body.name,
@@ -61,6 +62,7 @@ class employeeController {
     }
   };
 
+  // Delete an employee
   deleteEmployee = async (req: Request, res: Response) => {
     const id = req.params.id;
     const response: any = await EmployeeServices.deleteEmployee(id);
@@ -78,6 +80,7 @@ class employeeController {
     }
   };
 
+  // View an employee
   viewEmployee = async (req: Request, res: Response) => {
     const id = req.params.id;
     const response: any = await EmployeeServices.viewEmployee(id);

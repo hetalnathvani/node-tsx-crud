@@ -1,7 +1,7 @@
 import express from "express";
 import { db } from "./config/db.config";
-import { router } from "./Routes/employee.routes";
 import cors from "cors";
+import { router } from "./Routes/index.routes";
 
 const app = express();
 
@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // routes
-app.use("/api/v1/employees", router);
+app.use("/api/v1", router);
 
 // db connection then server connection
 db.then(() => {

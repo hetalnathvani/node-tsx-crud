@@ -1,7 +1,15 @@
+import { Request, Response } from "express";
+import { ProjectServices } from "../Services/project.service";
+
 class projectsController {
   // get all projects
-  getAllProjects = async () => {
-    console.log("I am here");
+  getAllProjects = async (req: Request, res: Response) => {
+    const projects = await ProjectServices.getAllProjects();
+    res.send({
+      status: "Success",
+      data: projects,
+      message: "Projects list sent successfully !!!",
+    });
   };
 }
 

@@ -3,4 +3,5 @@ const ProjectSchema = {
   description: { type: Text },
   clientName: { type: String },
   startDate: { type: Date },
+  status: { type: String },
 };

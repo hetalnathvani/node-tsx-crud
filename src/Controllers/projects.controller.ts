@@ -11,6 +11,16 @@ class projectsController {
       message: "Projects list sent successfully !!!",
     });
   };
+
+  // get project By id
+  getProjectById = async(req: Request, res: Response) => {
+    const project = await ProjectServices.getProjectById();
+    res.send({
+      status: "Success",
+      data: project,
+      message: "Project fetched successfully !!!",
+    });
+  }
 }
 
 export const ProjectsController = new projectsController();

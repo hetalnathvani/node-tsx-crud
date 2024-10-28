@@ -21,6 +21,9 @@ class employeeController {
       projects: req.body.projects,
       city: req.body.city,
       education: req.body.education,
+      designation: req.body.designation,
+      joiningDate: req.body.joiningDate,
+      startDate: req.body.startDate,
     };
 
     const { error, value } = EmployeeSchemaValidate.validate(data);
@@ -45,6 +48,9 @@ class employeeController {
       projects: req.body.projects,
       city: req.body.city,
       education: req.body.education,
+      designation: req.body.designation,
+      joiningDate: req.body.joiningDate,
+      startDate: req.body.startDate,
     };
 
     const { error, value } = EmployeeSchemaValidate.validate(data);

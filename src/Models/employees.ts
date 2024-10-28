@@ -4,6 +4,10 @@ import mongoose from "mongoose";
 // Creating an interface
 const EmployeeSchema = new mongoose.Schema({
   name: { type: String },
+  designation: { type: String },
+  // manager: { type: String },
+  // joiningDate: { type: Date },
+  // startDate: { type: Date },
   email: { type: String },
   projects: { type: String },
   city: { type: String },
@@ -13,6 +17,10 @@ const EmployeeSchema = new mongoose.Schema({
 // Validation Schema
 export const EmployeeSchemaValidate = Joi.object({
   name: Joi.string().required(),
+  designation: Joi.string().required(),
+  // manager: Joi.string().required(),
+  // joiningDate: Joi.string().required(),
+  // startDate: Joi.date().required(),
   email: Joi.string().required(),
   projects: Joi.string().required(),
   city: Joi.string().required(),

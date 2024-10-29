@@ -24,6 +24,7 @@ class employeeController {
       designation: req.body.designation,
       joiningDate: req.body.joiningDate,
       startDate: req.body.startDate,
+      status: req.body.status,
     };
 
     const { error, value } = EmployeeSchemaValidate.validate(data);
@@ -51,6 +52,7 @@ class employeeController {
       designation: req.body.designation,
       joiningDate: req.body.joiningDate,
       startDate: req.body.startDate,
+      status: req.body.status,
     };
 
     const { error, value } = EmployeeSchemaValidate.validate(data);

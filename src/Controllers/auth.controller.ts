@@ -3,9 +3,14 @@ import { AuthServices } from "../Services/auth.service";
 
 class authController {
   login = async (req: Request, res: Response) => {
-    console.log(" hu chhu ahi");
+    const data = {
+      email: req.body.email,
+      password: req.body.password,
+    };
 
-    const response = AuthServices.login(req);
+    console.log(data);
+    
+    const response = AuthServices.login(data);
     // console.log(response);
   };
 }

@@ -16,6 +16,7 @@ const EmployeeSchema = new mongoose.Schema({
     enum: ["OCCUPIED", "AVAILABLE", "PARTIALLY_OCCUPIED"],
     default: "AVAILABLE",
   },
+  password: { type: String, required: true },
 });
 
 // Validation Schema
@@ -29,6 +30,7 @@ export const EmployeeSchemaValidate = Joi.object({
   city: Joi.string().required(),
   education: Joi.string().required(),
   status: Joi.string().required(),
+  password: Joi.string().required(),
 });
 
 export const Employees = mongoose.model("employees", EmployeeSchema);

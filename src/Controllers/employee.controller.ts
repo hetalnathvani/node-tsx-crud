@@ -25,6 +25,7 @@ class employeeController {
       joiningDate: req.body.joiningDate,
       startDate: req.body.startDate,
       status: req.body.status,
+      password: req.body.password,
     };
 
     const { error, value } = EmployeeSchemaValidate.validate(data);
